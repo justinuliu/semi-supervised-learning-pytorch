@@ -24,7 +24,7 @@ def train_sup(label_loader, model, criterions, optimizer, epoch, args):
         data_time.update(time.time() - end)
         sl = input.shape
         batch_size = sl[0]
-        target = target.cuda(async=True)
+        # target = target.cuda(async=True)
         input_var = torch.autograd.Variable(input)
         target_var = torch.autograd.Variable(target)
         # compute output
@@ -97,7 +97,7 @@ def train_pi(label_loader, unlabel_loader, model, criterions, optimizer, epoch, 
         batch_size = sl[0] + su[0]
         # measure data loading time
         data_time.update(time.time() - end)
-        target = target.cuda(async=True)
+        # target = target.cuda(async=True)
         input_var = torch.autograd.Variable(input)
         input1_var = torch.autograd.Variable(input1)
         input_ul_var = torch.autograd.Variable(input_ul)
@@ -191,7 +191,7 @@ def train_mt(label_loader, unlabel_loader, model, model_teacher, criterions, opt
         batch_size = sl[0] + su[0]
         # measure data loading time
         data_time.update(time.time() - end)
-        target = target.cuda(async=True)
+        # target = target.cuda(async=True)
         input_var = torch.autograd.Variable(input)
         input1_var = torch.autograd.Variable(input1)
         input_ul_var = torch.autograd.Variable(input_ul)
@@ -271,7 +271,7 @@ def validate(val_loader, model, criterions, args, mode = 'valid'):
         for i, (input, target, _) in enumerate(val_loader):
             sl = input.shape
             batch_size = sl[0]
-            target = target.cuda(async=True)
+            # target = target.cuda(async=True)
             input_var = torch.autograd.Variable(input)
             target_var = torch.autograd.Variable(target)
  

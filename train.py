@@ -86,7 +86,7 @@ def main():
     global acc1_test, losses_test, losses_et_test
     global weights_cl
     args = parser.parse_args()
-    print args
+    print(args)
     if args.dataset == 'svhn':
         drop_rate=0.3
         widen_factor=3
@@ -110,7 +110,7 @@ def main():
         model_teacher = torch.nn.DataParallel(model_teacher).cuda()
 
     model = torch.nn.DataParallel(model).cuda()
-    print model
+    print(model)
     
     # optionally resume from a checkpoint
     if args.resume:
